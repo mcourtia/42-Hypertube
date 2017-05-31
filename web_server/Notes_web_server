@@ -1,0 +1,13 @@
+Dockerfile
+    > compile notre projet
+    > lance package.json
+        > lance nodemon.json
+            > nodemon relance l'app a chaque changement
+        > lance app.js
+            > nous connecte a la BDD
+            > lance router.js
+                > lance un Middleware, qui prouve aue la requete est bien arrivée
+                > regarde le chemin demandé dans l'API
+                > appelle Checker.args, qui passe une regex sur chaque element envoyé par l'utilisateur
+                > apelle une liste predefinie d'autres "promises"
+                > retourne un json a l'utilisateur, {state: "success|validation|error", data: {}}

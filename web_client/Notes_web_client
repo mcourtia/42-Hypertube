@@ -1,0 +1,17 @@
+index.html
+    > inclus style.css
+    > inclus tout les controllers
+    > inclus script.js
+        > active mainController
+        > active UN template et UN controller suivant la page
+
+todo enlever rzslider.min.js, rzslider.min.css
+
+
+
+--------------------------------------
+Comment faire une requete a l'api ?
+
+tu peux prendre exemple sur controllers/login.js
+il faudra discuter du json de retour, et du chemin d'envoi
+--------------------------------------

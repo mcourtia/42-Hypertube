@@ -1,0 +1,20 @@
+<div class="alert alert-success message visible-{{!!success}}">
+    <i class="icon icon-check-circle icon-lg"></i><strong>Success ! </strong>{{success}}
+</div>
+<div class="alert alert-info message visible-{{!!validation}}">
+    <i class="icon icon-info-circle icon-lg"></i><strong>Warning ! </strong>{{validation}}
+</div>
+<div class="alert alert-danger message visible-{{!!error}}">
+    <i class="icon icon-times-circle icon-lg"></i><strong>Error ! </strong>{{error}}
+</div>
+<div class="profile">
+    <div class="myprofile">
+        <img src={{account.image}} class="bigcircle"/>
+        <div>
+            <b>{{account.pseudo}}</b><br/>
+            <span style="text-transform:capitalize;">{{account.firstname}}</span>
+            <span style="text-transform: uppercase;">{{account.lastname}}</span><br/>
+            {{account.lastConnect}}<br/>
+        </div>
+    </div>
+</div>

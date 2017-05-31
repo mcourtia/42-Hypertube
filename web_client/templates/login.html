@@ -1,0 +1,52 @@
+<div class="alert alert-success message visible-{{!!success}}">
+    <i class="icon icon-check-circle icon-lg"></i><strong>Success ! </strong>{{success}}
+</div>
+<div class="alert alert-info message visible-{{!!validation}}">
+    <i class="icon icon-info-circle icon-lg"></i><strong>Warning ! </strong>{{validation}}
+</div>
+<div class="alert alert-danger message visible-{{!!error}}">
+    <i class="icon icon-times-circle icon-lg"></i><strong>Error ! </strong>{{error}}
+</div>
+<div class='container basic'>
+    <div class='row'>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <h2><b>Login</b></h2><br/><br/>
+            <label for="pseudo" class="col-sm-3 control-label">Pseudo :</label>
+            <div class="col-sm-7">
+                <input class="form-control" name="pseudo" id="pseudo" ng-model="pseudo">
+            </div>
+            <br/><br/><br/>
+            <label for="password" class="col-sm-3 control-label">Password :</label>
+            <div class="col-sm-7">
+                <input class="form-control" name="password" id="password" ng-model="password" type="password">
+            </div>
+            <br/><br/><br/>
+            <input class="btn btn-default" name="modifier" id="envoyer" type="submit" value="Login"><br/>
+        </div>
+    </div>
+    <div class="omniauth">
+        <a class="omniauth_logos" href='https://api.intra.42.fr/oauth/authorize?client_id=8d0a917b0c36460e736b1435ed9e4dddfb107f23b759f4cabb21988bd7e97625&redirect_uri=http%3A%2F%2F46.101.7.5%2Ftemplates%2FOauth42.html&response_type=code'><img height=40px src="../images/42-logo.png"></a>
+        <a class="omniauth_logos" href='https://github.com/login/oauth/authorize?client_id=097eaccd8d61de601a98'><img height=40px src="../images/github-logo.png"></a>
+        <a class="omniauth_logos" href='https://www.facebook.com/dialog/oauth?client_id=520197931437825&redirect_uri=http%3A%2F%2F46.101.7.5%2Ftemplates%2FOauthfb.html'><img height=40px src="../images/facebook-logo.png"></a>
+    </div>
+</div>
+<div class="container forgot basic" style="display:none;">
+    <div class='row'>
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <b>Mot de passe oublié ?</b><br/><br/>
+            <label for="mail" class="col-sm-3 control-label">Mail adress :</label>
+            <div class="col-sm-7">
+                <input class="form-control" name="mail" id="mail" ng-model="mail">
+            </div>
+            <br/><br/><br/>
+            <label for="pseudo2" class="col-sm-3 control-label">Pseudo :</label>
+            <div class="col-sm-7">
+                <input class="form-control" name="pseudo" id="pseudo2" placeholder="Pseudo" ng-model="pseudo">
+            </div>
+            <br/><br/><br/>
+            <input class="btn btn-default" id="forgot" type="submit" value="Reset my password"><br/>
+        </div>
+    </div>
+</div>

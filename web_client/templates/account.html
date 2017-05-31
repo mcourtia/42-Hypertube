@@ -1,0 +1,78 @@
+<div class="alert alert-success message visible-{{!!success}}">
+    <i class="icon icon-check-circle icon-lg"></i><strong>Success ! </strong>{{success}}
+</div>
+<div class="alert alert-info message visible-{{!!validation}}">
+    <i class="icon icon-info-circle icon-lg"></i><strong>Warning ! </strong>{{validation}}
+</div>
+<div class="alert alert-danger message visible-{{!!error}}">
+    <i class="icon icon-times-circle icon-lg"></i><strong>Error ! </strong>{{error}}
+</div>
+<div class="container basic profile">
+    <div class="row myprofile">
+        <div class="prof_left col-sm-6">
+            <b>My account</b><br/><br/>
+            <img src="{{account.image?account.image:'images/profile_account.png'}}" class="bigcircle" /><br/>
+            <div class="biginput">
+                <input type="file" fileread="account.image"><br/>
+            </div>
+            <div>
+                <b>{{account.pseudo}}</b><br/>
+                <span style="text-transform:capitalize;">{{account.firstname}}</span>
+                <span style="text-transform: uppercase;">{{account.lastname}}</span><br/>
+                {{account.lang}}<br/>
+                {{account.mail}}<br/>
+            </div>
+        </div>
+        <div class="prof_right col-sm-6">
+            <b>My last movies</b><br/><br/>
+            <div ng-repeat="obj in account.histo | orderBy:'-'" class="histo">
+                <div class="row">
+                    <div class="col-sm-10 tor_title">{{obj.title}}</div>
+                    <div class="col-sm-2"><a href="#/player/{{obj.imdbid}}"><span class="glyphicon glyphicon-play"></span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row myprofile" id="modify">
+        <b>Update profile</b><br/><br/>
+        <div class="myprofile" style="position:absolute;bottom:100%" id="modify_content">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <label for="mail" class="col-sm-4 control-label">Mail :</label>
+                <div class="col-sm-8">
+                    <input ng-model="account.mail" class="form-control" id="mail" type="text" placeholder="Mail adress">
+                </div>
+                <br/><br/><br/>
+                <label for="firstname" class="col-sm-4 control-label">First name :</label>
+                <div class="col-sm-8">
+                    <input ng-model="account.firstname" class="form-control" id="firstname" type="text" placeholder="Fisrt name">
+                </div>
+                <br/><br/><br/>
+                <label for="lastname" class="col-sm-4 control-label">Last name :</label>
+                <div class="col-sm-8">
+                    <input ng-model="account.lastname" class="form-control" id="lastname" type="text" placeholder="Last name">
+                </div>
+                <br/><br/><br/>
+                <img src="images/flags/fr.png" ng-click="account.lang = 'fr'">
+                <img src="images/flags/en.png" ng-click="account.lang = 'en'">
+                <img src="images/flags/cn.png" ng-click="account.lang = 'cn'">
+                <img src="images/flags/jp.png" ng-click="account.lang = 'jp'">
+                <img src="images/flags/ru.png" ng-click="account.lang = 'ru'">
+                <img src="images/flags/es.png" ng-click="account.lang = 'es'">
+                <img src="images/flags/it.png" ng-click="account.lang = 'it'">
+                <img src="images/flags/de.png" ng-click="account.lang = 'de'">
+                <img src="images/flags/eus.png" ng-click="account.lang = 'eus'" height="32" width="46">
+                <br/><br/>
+                <input class="btn btn-default" id="envoyer" type="submit" value="Update"><br/>
+                <div class="col-sm-6">
+                    <input ng-model="oldPassword" class="form-control change_pass" type="password" placeholder="Old password">
+                </div>
+                <div class="col-sm-6">
+                    <input ng-model="newPassword" class="form-control change_pass" type="password" placeholder="New password">
+                </div>
+                <input class="btn btn-default val_change_pass" id="change_password" type="submit" value="Change my password">
+            </div>
+        </div>
+    </div>
+    <a href="#/user/{{account.pseudo}}">Vue exterieure de mon compte</a>
+</div>

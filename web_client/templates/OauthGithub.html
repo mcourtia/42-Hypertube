@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oauth - Github</title>
+</head>
+<body>
+    <script>
+        var Url = document.location.href;
+        if (Url.split("?code=").length === 2) {
+            OCode = Url.split("?code=")[1];
+            document.write("si vous n'êtes pas automatiquement redirigé, Cliquez <a href ='http://46.101.7.5/#/login/Github/"+OCode+"'>ici</a>.");
+            window.location.replace("http://46.101.7.5/#/login/Github/"+OCode);
+        }
+    </script>
+</body>
+</html>

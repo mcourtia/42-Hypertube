@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="scotchApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>Hypertube</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-cookies.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="rzslider.css" rel="stylesheet" type="text/css">
+    <script src="https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.js"></script>
+
+    <script src="script.js"></script>
+    <script src="controllers/account.js"></script>
+    <script src="controllers/create.js"></script>
+    <script src="controllers/login.js"></script>
+    <script src="controllers/player.js"></script>
+    <script src="controllers/search.js"></script>
+    <script src="controllers/user.js"></script>
+</head>
+<body ng-controller="mainController" class="ng-scope" background="../images/dark-planingwood.png">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img class="logo" src="../images/bande.png">
+                <a class="navbar-brand" href="#/">Hypertube</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/my_account"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                    <li><a href="#/search"><span class="glyphicon glyphicon-film"></span> Movies</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="visible-{{!loggedin}}"><a href="#/create"><span class="glyphicon glyphicon-list-alt"></span> Sign Up</a></li>
+                    <li class="visible-{{!loggedin}}"><a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                    <li class="visible-{{loggedin}}"><a id="deco"><span class="glyphicon glyphicon-off mdp"></span> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="view" ng-view></div>
+    <footer class="footer">
+        <div class="container">
+            <div class="pull-left">© Hypertube 2017</div>
+            <div class="pull-right">Made with ❤ by nterrier mcourtia & mlavanan @42</div>
+        </div>
+    </footer>
+</body>
+</html>
+

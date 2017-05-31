@@ -1,0 +1,48 @@
+<div class="alert alert-success message visible-{{!!success}}">
+    <i class="icon icon-check-circle icon-lg"></i><strong>Success ! </strong>{{success}}
+</div>
+<div class="alert alert-info message visible-{{!!validation}}">
+    <i class="icon icon-info-circle icon-lg"></i><strong>Warning ! </strong>{{validation}}
+</div>
+<div class="alert alert-danger message visible-{{!!error}}">
+    <i class="icon icon-times-circle icon-lg"></i><strong>Error ! </strong>{{error}}
+</div>
+
+<div ng-if="!error">
+    <div class="container basic">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3">
+                <img ng-src="{{movie.medium_cover_image}}">
+            </div>
+            <div class="col-lg-7">
+                <h2>{{movie.title}}</h2>
+                <p style="margin-top:40px;">Torrents available :</p>
+                <div class="back_torrents">
+                    <div ng-repeat="obj in movie.torrents" class="torrent">
+                        <div class="row">
+                            <div class="col-sm-7 tor_title">{{movie.title}} - {{obj.quality}}</div>
+                            <div class="col-sm-2 tor_det">{{obj.size}}</div>
+                            <div class="col-sm-1 tor_det seeds">{{obj.seeds}}</div>
+                            <div class="col-sm-1 tor_det peers">{{obj.peers}}</div>
+                            <div class="col-sm-1" ng-click="download(obj.hash)"><span class="glyphicon glyphicon-play"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <textarea class="form-control comment" ng-model="comm.com" placeholder="Add a comment..."></textarea>
+                <input type="submit" class="btn btn-default" ng-click="sendComment()" value="Add a comment" />
+                <div ng-repeat="obj in movie.comments | orderBy:'-'">
+                    <div class="com">
+                        <div class="com_user_date"><b><a href="#/user/{{obj.user}}">{{obj.user}}</a></b> - <i><font size="2">{{obj.date}}</font></i></div>
+                        <div class="com_com">{{obj.comment}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

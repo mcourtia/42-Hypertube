@@ -1,0 +1,107 @@
+<div class="side_menu">
+    <div class="search">
+        <input type="text" name="title" id="title" ng_model="title" placeholder="Search..." />
+        <a href="#/search" ng-click="search()"><span class="glyphicon glyphicon-search"></span></a>
+    </div>
+    <p class="type">Movies</p>
+    <div class="kind">
+        <p><a href="#/search" ng-click="genre('pop')">Popular</a></p>
+        <p><a href="#/search" ng-click="genre('Action')">Action</a></p>
+        <p><a href="#/search" ng-click="genre('Adventure')">Adventure</a></p>
+        <p><a href="#/search" ng-click="genre('Animation')">Animation</a></p>
+        <p><a href="#/search" ng-click="genre('Comedy')">Comedy</a></p>
+        <p><a href="#/search" ng-click="genre('Crime')">Crime</a></p>
+        <p><a href="#/search" ng-click="genre('Documentary')">Documentary</a></p>
+        <p><a href="#/search" ng-click="genre('Drama')">Drama</a></p>
+        <p><a href="#/search" ng-click="genre('Family')">Family</a></p>
+        <p><a href="#/search" ng-click="genre('Fantasy')">Fantasy</a></p>
+        <p><a href="#/search" ng-click="genre('History')">History</a></p>
+        <p><a href="#/search" ng-click="genre('Horror')">Horror</a></p>
+        <p><a href="#/search" ng-click="genre('Music')">Music</a></p>
+        <p><a href="#/search" ng-click="genre('Mystery')">Mystery</a></p>
+        <p><a href="#/search" ng-click="genre('Romance')">Romance</a></p>
+        <p><a href="#/search" ng-click="genre('Sci-Fi')">Sci-Fi</a></p>
+        <p><a href="#/search" ng-click="genre('Thriller')">Thriller</a></p>
+        <p><a href="#/search" ng-click="genre('War')">War</a></p>
+        <p><a href="#/search" ng-click="genre('Western')">Western</a></p>
+    </div>
+    <div class="sort">
+        <b>Sort by</b>
+        <div>
+            <a href="#/search" ng-click="sort('pop')">Popularity</a>
+            <span><a href="#/search" ng-click="sort('year')">Year</a></span>
+            <span><a href="#/search" ng-click="sort('title')">Title</a></span>
+        </div>
+    </div>
+    <div class="filter">
+        Year: <rzslider class="custom-slider" rz-slider-model="yearMin" rz-slider-high="yearMax" rz-slider-options="yearSlider"></rzslider>
+        Rating: <rzslider class="custom-slider" rz-slider-model="noteMin" rz-slider-high="noteMax" rz-slider-options="noteSlider"></rzslider>
+    </div>
+</div>
+<div id="movies" class="movies">
+    <div class="alert alert-success visible-{{!!success}}">
+        <i class="icon icon-check-circle icon-lg"></i><strong>Success ! </strong>{{success}}
+    </div>
+    <div class="alert alert-info visible-{{!!validation}}">
+        <i class="icon icon-info-circle icon-lg"></i><strong>Warning ! </strong>{{validation}}
+    </div>
+    <div class="alert alert-danger visible-{{!!error}}">
+        <i class="icon icon-times-circle icon-lg"></i><strong>Error ! </strong>{{error}}
+    </div>
+    <span ng-repeat="obj in films" ng-if="obj.release_date!==undefined && obj.release_date!=='' && obj.note!==undefined && obj.note!=='' && obj.note!='0' && obj.title!==undefined && obj.title!=='' && obj.poster_path!=='' && obj.poster_path!==undefined && obj.poster_path!==null">
+        <div class="movie">
+            <div class="{{obj.watched}}">
+                <div class="title">
+                    {{obj.title}}
+                </div>
+                <div class="date">
+                    {{obj.year}}
+                </div>
+                <div class="note">
+                    {{obj.note}}/10
+                </div>
+            </div>
+            <div class="film">
+                <img ng-src="http://image.tmdb.org/t/p/w185/{{obj.poster_path}}" ng-click="to_details(obj)">
+            </div>
+        </div>
+    </span>
+</div>
+<div class="movie_details" ng-if="details" style="background-image:url('http://image.tmdb.org/t/p/w1920/{{details.backdrop_path}}');">
+    <div class="exit" ng-click="hide_details()">
+        <span class="glyphicon glyphicon-remove-circle"></span>
+    </div>
+    <div class='container back_details'>
+        <div class='row h100'>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 h100">
+                <div class="det_title">
+                    <h2>{{details.title}}</h2>
+                </div>
+                <div class="det_infos">
+                    <span class="glyphicon glyphicon-facetime-video" style="color:green"></span> {{details.genre}}
+                    <span class="marge"><span class="glyphicon glyphicon-calendar" style="color:green"></span> {{details.year}}</span>
+                    <span class="marge"><span class="glyphicon glyphicon-time" style="color:green"></span> {{details.duree}}</span>
+                    <span class="marge"><span class="glyphicon glyphicon-pencil" style="color:green"></span> {{details.note}}/10</span>
+                </div>
+                <div class="det_syno">
+                    {{details.plot}}
+                </div>
+                <div class="crew">
+                    <font color="green"><b>Director:</b></font> {{details.director}}
+                </div>
+                <div class="crew">
+                    <font color="green"><b>Actors:</b></font> {{details.actor}}
+                </div>
+                <div class="to_player">
+                    <a href="#/player/{{details.imdbid}}">
+                        <div class="button_grab">
+                            <div class="glyphicon glyphicon-expand button_play"></div>
+                            <div class="grab">GRAB POP CORN</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
