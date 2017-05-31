@@ -23,6 +23,10 @@ Ce projet a été réalisé en MEAN stack (MongoDB, Express.js, AnlugarJS, Node.
 
 ![Infos]()
 
+### Choix du torrent
+
+![Torrent]()
+
 ### Player web
 
 ![Player]()
